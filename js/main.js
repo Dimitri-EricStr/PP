@@ -27,13 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("reset-inventory-button")
     .addEventListener("click", () => {
       resetInventory();
-      if (
-        document.getElementById("element-dropdown").style.display === "block"
-      ) {
-        document.getElementById("element-dropdown").style.display = "none";
-        document.getElementById("unit-dropdown").style.display = "none";
-        document.getElementById("start-summon").style.display = "none";
-      }
+      
       
     });
 
@@ -68,9 +62,13 @@ function populateUnitDropdown(element) {
   const unitDropdown = document.getElementById("unit-select");
   unitDropdown.innerHTML = "";
 
-  const filteredUnits = [...nat4, ...nat5].filter(
-    (unit) => unit.element.toLowerCase() === element.toLowerCase()
-  );
+  const filteredUnits = [...nat4, ...nat5]
+    .filter((unit) => unit.element.toLowerCase() === element.toLowerCase())
+    .sort((a, b) => {
+      if (a.name === "Weapon Master") return -1;
+      if (b.name === "Weapon Master") return 1;
+      return a.name.localeCompare(b.name);
+    }); // Sort units alphabetically with "Weapon Master" at the top
 
   filteredUnits.forEach((unit) => {
     const option = document.createElement("option");
