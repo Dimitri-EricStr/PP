@@ -3,18 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("normal-summon-button")
     .addEventListener("click", () => {
-      performSummon("normal", 10); // Specify default count
+      performFlexSummon("normal"); 
     });
 
   document.getElementById("ld-summon-button").addEventListener("click", () => {
-    performSummon("ld", 10); // Specify default count
+    performFlexSummon("ld"); 
   });
-
-  document
-    .getElementById("hundred-ld-summon-button")
-    .addEventListener("click", () => {
-      perform100Summons();
-    });
 
   document
     .getElementById("display-inventory-button")
@@ -33,6 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .getElementById("reset-inventory-button")
     .addEventListener("click", () => {
       resetInventory();
+      if (
+        document.getElementById("element-dropdown").style.display === "block"
+      ) {
+        document.getElementById("element-dropdown").style.display = "none";
+        document.getElementById("unit-dropdown").style.display = "none";
+        document.getElementById("start-summon").style.display = "none";
+      }
+      
     });
 
   document

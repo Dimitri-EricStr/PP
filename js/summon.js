@@ -128,9 +128,12 @@ function createListItem(unit) {
     `;
   return listItem;
 }
-
-function perform100Summons() {
-  performSummon("ld", 100);
+function performFlexSummon(type) {
+  const eigZahl = document.getElementById("summon-count-input").value;
+  if (type === "normal") {
+    performSummon("normal", eigZahl);
+  } else {
+    performSummon("ld", eigZahl);
+  }
 }
 
-// Weitere Funktionen für Normal- und LD-Beschwörung hier...

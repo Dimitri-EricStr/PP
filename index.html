@@ -16,9 +16,12 @@
     <div class="container">
       <h1>Willkommen zum Simulator</h1>
       <div>
-        <button id="normal-summon-button">10x Normal Summon<br /></button>
-        <button id="ld-summon-button">10x L/D Summon<br /></button>
-        <button id="hundred-ld-summon-button">100x L/D Summon<br /></button>
+        <label for="summon-count-input">Summons mit einem Klick:</label>
+        <input type="number" id="summon-count-input" value="10" min="1" />
+      </div>
+      <div>
+        <button id="normal-summon-button">Summon<br /></button>
+        <button id="ld-summon-button">L/D Summon<br /></button>
       </div>
       <div>
         <button id="pull-specific-unit-button">Ziehe deine Unit<br /></button>
@@ -52,6 +55,7 @@
       <div id="start-summon">
         <button id="start-summon-button">Summon Unit</button>
       </div>
-    </div>
+
+      
   </body>
 </html>
