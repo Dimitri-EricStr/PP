@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summon Simulator</title>
+    <script src="js/data.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/summon.js"></script>
+    <script src="js/utils.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Willkommen zum Simulator</h1>
+      <div>
+        <button id="normal-summon-button">10x Normal Summon<br /></button>
+        <button id="ld-summon-button">10x L/D Summon<br /></button>
+        <button id="hundred-ld-summon-button">100x L/D Summon<br /></button>
+      </div>
+      <div>
+        <button id="pull-specific-unit-button">Ziehe deine Unit<br /></button>
+        <button id="display-inventory-button">Inventar anzeigen (0)<br />
+        </button>
+        <button id="reset-inventory-button">Inventar zurücksetzen<br /></button>
+      </div>
+      <div id="cc">
+        <ul id="first-row"></ul>
+        <ul id="second-row"></ul>
+      </div>
+      <p id="output"></p>
+
+      <!-- Dropdowns für Auswahl -->
+      <div id="element-dropdown">
+        <label for="element-select">Wähle ein Element:</label>
+        <select id="element-select">
+          <option value="light">Light</option>
+          <option value="dark">Dark</option>
+          <option value="fire">Fire</option>
+          <option value="water">Water</option>
+          <option value="wind">Wind</option>
+        </select>
+      </div>
+
+      <div id="unit-dropdown">
+        <label for="unit-select">Wähle eine Einheit:</label>
+        <select id="unit-select"></select>
+      </div>
+
+      <div id="start-summon">
+        <button id="start-summon-button">Summon Unit</button>
+      </div>
+    </div>
+  </body>
+</html>
