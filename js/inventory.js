@@ -50,21 +50,16 @@ function displayInventory() {
 
   totalInventoryCount = inventory.reduce((acc, unit) => acc + unit.count, 0);
 
+  const elementOrder = ["light", "dark", "water", "fire", "wind"];
+
   const sortedEntries = inventory.sort((a, b) => {
     if (b.natural_star !== a.natural_star) {
       return b.natural_star - a.natural_star;
     }
-    if (a.element === "light" && b.element !== "light") {
-      return -1;
-    }
-    if (a.element === "dark" && b.element !== "dark" && b.element !== "light") {
-      return -1;
-    }
-    if (b.element === "light" && a.element !== "light") {
-      return 1;
-    }
-    if (b.element === "dark" && a.element !== "dark" && a.element !== "light") {
-      return 1;
+    const elementAIndex = elementOrder.indexOf(a.element);
+    const elementBIndex = elementOrder.indexOf(b.element);
+    if (elementAIndex !== elementBIndex) {
+      return elementAIndex - elementBIndex;
     }
     return a.name.localeCompare(b.name);
   });

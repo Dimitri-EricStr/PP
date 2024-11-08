@@ -86,21 +86,16 @@ function getFrequencyMap(unitList) {
 }
 
 function sortUnitList(unitList) {
+  const elementOrder = [ELEMENTS.LIGHT, ELEMENTS.DARK, ELEMENTS.WATER, ELEMENTS.FIRE, ELEMENTS.WIND];
+
   return unitList.sort((a, b) => {
     if (b.natural_stars !== a.natural_stars) {
       return b.natural_stars - a.natural_stars;
     }
-    if (a.element === ELEMENTS.LIGHT && b.element !== ELEMENTS.LIGHT) {
-      return -1;
-    }
-    if (a.element === ELEMENTS.DARK && b.element !== ELEMENTS.DARK && b.element !== ELEMENTS.LIGHT) {
-      return -1;
-    }
-    if (b.element === ELEMENTS.LIGHT && a.element !== ELEMENTS.LIGHT) {
-      return 1;
-    }
-    if (b.element === ELEMENTS.DARK && a.element !== ELEMENTS.DARK && a.element !== ELEMENTS.LIGHT) {
-      return 1;
+    const elementAIndex = elementOrder.indexOf(a.element);
+    const elementBIndex = elementOrder.indexOf(b.element);
+    if (elementAIndex !== elementBIndex) {
+      return elementAIndex - elementBIndex;
     }
     return a.name.localeCompare(b.name);
   });
