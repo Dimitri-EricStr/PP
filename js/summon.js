@@ -87,11 +87,21 @@ function getFrequencyMap(unitList) {
 
 function sortUnitList(unitList) {
   return unitList.sort((a, b) => {
-    if (b.natural_stars !== a.natural_stars)
+    if (b.natural_stars !== a.natural_stars) {
       return b.natural_stars - a.natural_stars;
-    if (a.element === ELEMENTS.LIGHT && b.element !== ELEMENTS.LIGHT) return -1;
-    if (a.element === ELEMENTS.DARK && b.element !== ELEMENTS.DARK) return 1;
-    if (b.count !== a.count) return b.count - a.count;
+    }
+    if (a.element === ELEMENTS.LIGHT && b.element !== ELEMENTS.LIGHT) {
+      return -1;
+    }
+    if (a.element === ELEMENTS.DARK && b.element !== ELEMENTS.DARK && b.element !== ELEMENTS.LIGHT) {
+      return -1;
+    }
+    if (b.element === ELEMENTS.LIGHT && a.element !== ELEMENTS.LIGHT) {
+      return 1;
+    }
+    if (b.element === ELEMENTS.DARK && a.element !== ELEMENTS.DARK && a.element !== ELEMENTS.LIGHT) {
+      return 1;
+    }
     return a.name.localeCompare(b.name);
   });
 }
