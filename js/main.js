@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (attempts > 300000) {
         alert(`${attempts} Runen. Du wirst nie ne 30 Spd Rune bekommen bro, trz nice cock.`);
       } else {
-        alert(`Du hast ${attempts} Runen gebraucht bis zur 30 Spd.`);
+        alert(`Du hast ${attempts} Legendary 6 Spd Runen gebraucht bis zur 30 Spd.`);
       }
     });
 
