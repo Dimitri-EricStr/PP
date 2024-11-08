@@ -90,4 +90,26 @@ function updateUnitList(unit) {
   }
 }
 
+function quadRoll() {
+  let attempts = 0;
+  let quadRoll = 0;
+
+  while (quadRoll < 5) {
+    attempts++;
+    const chance = Math.random();
+    if (chance <= 0.25) {
+      const roll = Math.floor(Math.random() * 3) + 4; // Roll a die with values from 4 to 6
+      if (roll === 6) {
+        quadRoll++;
+      } else {
+        quadRoll = 0;
+      }
+    } else {
+      quadRoll = 0;
+    }
+  }
+
+  return attempts;
+}
+
 // Weitere Hilfsfunktionen hier...

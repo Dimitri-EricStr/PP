@@ -54,6 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
       pullUntilUnitWithElement(unitName, element);
     });
 
+  document
+    .getElementById("quad-roll-button")
+    .addEventListener("click", () => {
+      const attempts = quadRoll();
+      if (attempts > 300000) {
+        alert(`${attempts} Runen. Du wirst nie ne 30 Spd Rune bekommen bro, trz nice cock.`);
+      } else {
+        alert(`Du hast ${attempts} Runen gebraucht bis zur 30 Spd.`);
+      }
+    });
+
   // Initialize inventory button
   updateInventoryButton();
 });
