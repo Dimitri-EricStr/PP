@@ -54,6 +54,18 @@ function displayInventory() {
     if (b.natural_star !== a.natural_star) {
       return b.natural_star - a.natural_star;
     }
+    if (a.element === "light" && b.element !== "light") {
+      return -1;
+    }
+    if (a.element === "dark" && b.element !== "dark" && b.element !== "light") {
+      return -1;
+    }
+    if (b.element === "light" && a.element !== "light") {
+      return 1;
+    }
+    if (b.element === "dark" && a.element !== "dark" && a.element !== "light") {
+      return 1;
+    }
     return a.name.localeCompare(b.name);
   });
 
